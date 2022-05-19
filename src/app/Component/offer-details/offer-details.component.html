@@ -1,0 +1,144 @@
+
+<app-nav-user></app-nav-user>
+
+
+
+
+<div class="clearfix"></div>
+
+
+
+
+<div id="titlebar">
+  <div class="container">
+    <div class="ten columns">
+      <span><a>Category / {{job.category.name}} </a></span>
+      <br>
+
+      <h2>{{job.title}} <span class="full-time">{{job.user.name}}</span></h2>
+
+      <span><a> <i class="fa fa-envelope"></i> {{job.user.email}} </a></span>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+<div class="container">
+
+
+  <div class="eleven columns">
+    <div class="padding-right">
+
+
+      <div class="company-info">
+        <img src="../../assets/jobs.png" alt="">
+        <div class="content">
+          <h1 style=" font-size: 40px;">{{job.title}}</h1>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+
+      <p class="margin-reset">
+        {{job.desc}}
+      </p>
+
+      <br>
+
+
+    </div>
+  </div>
+
+
+
+  <div class="five columns">
+
+
+    <div class="widget">
+      <h4>Job Overview</h4>
+
+      <div class="job-overview">
+
+        <ul>
+          <li>
+            <i class="fa fa-map-marker"></i>
+            <div>
+              <strong>Location:</strong>
+              <span>{{job.adress}}</span>
+            </div>
+          </li>
+          <li>
+            <i class="fa fa-user"></i>
+            <div>
+              <strong>Job Title:</strong>
+              <span>{{job.title}}</span>
+            </div>
+          </li>
+          <li>
+            <i class="fa fa-clock-o"></i>
+            <div>
+              <strong>Hours:</strong>
+              <span>{{job.duration}}</span>
+            </div>
+          </li>
+          <li>
+            <i class="fa fa-money"></i>
+            <div>
+              <strong>Job Cost</strong>
+              <span>{{job.balance}} $ </span>
+            </div>
+          </li>
+        </ul>
+
+
+
+      </div>
+
+    </div>
+
+  </div>
+  <div class="container">
+
+    <!-- Recent offers -->
+    <div class="eleven columns">
+      <div class="padding-right">
+        <h1 class="margin-bottom-25">Job Offers</h1>
+        <ul class="job-list">
+          <ng-container *ngFor="let post of listoffers; let i=index;">
+            <li class="highlighted">
+
+                <img src="../../assets/offer.png"  alt="">
+                <div class="job-list-content">
+                  <h4 style="color: #2DB2EA;"> {{post.user.name}} </h4>
+                  <div class="job-icons">
+                    <span ><i class="fa fa-comment"></i>  {{post.content}} </span>
+                    <br>
+
+                    <span><i class="fa fa-money"></i> {{post.offer_amount}}</span>
+
+                  </div>
+                  <span style="padding-left: 260px;" > <button style="background-color: #4A89D9;" (click)=" details(post.user_id)" > <i class="fa fa-user" style="color: rgb(255, 255, 255);" ></i> Show Profile  </button> </span> &nbsp;
+
+                  <button style="background-color: #157c55;" (click)="confirm(post.id)"><i class="fa fa-check" style="color: rgb(255, 255, 255);"  ></i> Accept Offer</button>
+                </div>
+
+              <div class="clearfix"></div>
+            </li>
+            <br><br>
+          </ng-container>
+
+        </ul>
+        <div class="clearfix"></div>
+
+      </div>
+      <div class="clearfix"></div>
+    </div>
+  </div>
+
+
+
+
+
+</div>

@@ -1,0 +1,144 @@
+
+<app-nav-user></app-nav-user>
+
+<!-- Titlebar
+================================================== -->
+
+<div id="titlebar" class="single submit-page">
+  <div class="container">
+
+    <div class="sixteen columns">
+      <h2 style="color: #2DB2EA;"><i class="fa fa-plus-circle"></i> Add Job</h2>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- Content
+================================================== -->
+
+<div class="container">
+  <form method="post" (ngSubmit)="addjob()" name="add" #FormAdd="ngForm">
+
+    <!-- Submit Page -->
+    <div class="sixteen columns">
+      <div class="submit-page">
+
+        <!-- Notice -->
+        <!-- <div class="notification notice closeable margin-bottom-40">
+                <p><span>Have an account?</span> If you don’t have an account you can create one below by entering your email address. A password will be automatically emailed to you.</p>
+            </div> -->
+
+        <div class="form">
+          <h5>Job Title</h5>
+          <input class="search-field" type="text" placeholder="" value="" [(ngModel)]="job.title" name="adddd" #input_name="ngModel" [class.is-valid]="input_name.valid" required minlength="3" />
+          <div class="alert alert-danger" [hidden]="input_name.valid || input_name.untouched">
+            <small *ngIf="input_name.errors?.['required']">
+              Title is required.
+            </small>
+            <small *ngIf="input_name.errors?.['minlength']">
+              Title must be 3 letters at least.
+            </small>
+          </div>
+        </div>
+        <!-- Description -->
+        <div class="form">
+          <h5>Description</h5>
+          <textarea name="summary" cols="40" rows="10" id="summary" spellcheck="true" [(ngModel)]="job.desc " #input_desc="ngModel" [class.is-valid]="input_desc.valid" required minlength="5"
+            name="addd" ></textarea>
+            <div class="alert alert-danger" [hidden]="input_desc.valid || input_desc.untouched">
+              <small *ngIf="input_desc.errors?.['required']">
+                Description is required.
+              </small>
+              <small *ngIf="input_desc.errors?.['minlength']">
+                Description must be 5 letters at least.
+              </small>
+            </div>
+        </div>
+        <!-- Email -->
+        <!-- <div class="form">
+        <h5>Your Email</h5>
+        <input class="search-field" type="text" placeholder="mail@example.com" value="" />
+      </div> -->
+
+
+
+        <!-- Location -->
+        <div class="form">
+          <h5>Address </h5>
+          <input class="search-field" type="text" placeholder="e.g. Mina" value="" [(ngModel)]="job.adress" #input_address="ngModel" [class.is-valid]="input_desc.valid" required
+            name="addf" />
+            <div class="alert alert-danger" [hidden]="input_address.valid || input_address.untouched">
+              <small *ngIf="input_address.errors?.['required']">
+                Description is required.
+              </small>
+            </div>
+
+        </div>
+
+
+
+
+        <!-- Choose Category -->
+        <div class="form">
+          <div class="select">
+            <h5>Category</h5>
+
+            <select data-placeholder="Choose Categories" [(ngModel)]="job.category_id" name="addw"#input_cat="ngModel" [class.is-valid]="input_cat.valid" required>
+              <option *ngFor="let cat of catlist ;let i=index " [value]="cat.id">
+                &nbsp; {{cat.name}}
+              </option>
+            </select>
+            <div class="alert alert-danger" [hidden]="input_cat.valid || input_cat.untouched" >
+              <small *ngIf="input_cat.errors?.['required']">
+                category is required.
+              </small>
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="form">
+          <h5>Duration <span>(Hours)</span></h5>
+          <input class="search-field" type="number" placeholder="e.g. 10 Hours" value="" [(ngModel)]="job.duration" #input_dur="ngModel" [class.is-valid]="input_dur.valid" required
+            name="addw2" />
+            <div class="alert alert-danger" [hidden]="input_dur.valid || input_dur.untouched">
+              <small *ngIf="input_dur.errors?.['required']">
+                Duration is required.
+              </small>
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+        <div class="form">
+          <h5>Balance</h5>
+          <input type="text" placeholder="e.g. 50 $" [(ngModel)]="job.balance" name="addw4" #input_balance="ngModel" [class.is-valid]="input_balance.valid" required>
+          <div class="alert alert-danger" [hidden]="input_balance.valid || input_balance.untouched">
+            <small *ngIf="input_balance.errors?.['required']">
+              Balance is required.
+            </small>
+          </div>
+
+        </div>
+
+
+
+        <div class=" margin-top-0"></div>
+        <button class="button big margin-top-5" type="submit" [disabled]="FormAdd.invalid"> Add Job <i class="fa fa-arrow-circle-right"></i></button>
+      </div>
+    </div>
+  </form>
+
+  <br> <br> <br>
+
+
+
+</div>

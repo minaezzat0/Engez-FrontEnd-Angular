@@ -1,0 +1,12 @@
+
+#name , #email{
+width: 800px;
+}
+.alert-danger {
+  background-color: #f2dede;
+  border-color: #ebccd1;
+  color: #a94442;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 20px;
+}

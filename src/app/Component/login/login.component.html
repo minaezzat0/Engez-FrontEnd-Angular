@@ -1,0 +1,54 @@
+
+
+<app-nav></app-nav>
+<!-- Content
+================================================== -->
+
+<!-- Container -->
+<div class="container">
+
+    <div class="my-account">
+
+        <!-- <ul class="tabs-nav">
+            <li class=""><a href="#tab1">Login</a></li>
+
+        </ul> -->
+
+        <div class="tabs-container">
+            <!-- Login -->
+            <div class="tab-content" id="tab1" >
+
+                <h2 class="margin-bottom-10 margin-top-10" style="text-align: center;">Login</h2>
+
+                <form method="post" class="login" [formGroup]= 'formGroup' (ngSubmit)="login()">
+
+
+                    <p class="form-row form-row-wide">
+                        <label for="username">Email Address:</label>
+                        <input type="text" class="input-text" formControlName="email" name="username" id="username" value="" />
+                    </p>
+
+                    <p class="form-row form-row-wide">
+                        <label for="password">Password:</label>
+                        <input class="input-text" type="password" formControlName="password" name="password" id="password" />
+                    </p>
+
+                    <p class="form-row" style="text-align: center;">
+                        <input type="submit" class="button" name="login" value="Login" />
+                    </p>
+
+                    <p style="text-align: center;color: black"> Or  </p>
+                    <p style="text-align: center; color: black;">  Login With </p>
+                    <p class="form-row" style="text-align: center; font-size: 25px; padding-bottom: 70px;">
+                      <a style="color: #EF6E35;"  > <i class="fab fa-google"> </i> </a> &nbsp;
+
+                      <a style="color: rgb(22, 116, 232);"   > <i class="fab fa-facebook"  > </i> </a>
+                    </p>
+
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+</div>

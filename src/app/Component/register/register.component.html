@@ -1,0 +1,214 @@
+<app-nav></app-nav>
+<!-- <form (ngSubmit)="addNewUser()"> -->
+<div class="container " style="pading : 20px ; width: 600px;">
+  <form (ngSubmit)="addNewUser()" method="post" name="form1" #FormAdd="ngForm">
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-body">
+            <h1 class="card-title mb-4 mt-2 text-center "
+              style="margin-top : 50px ; margin-bottom: 20px; padding-left: 220px; ">Register</h1>
+
+
+            <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-8 mb-3">
+                <input type="text" [(ngModel)]="newUser.name" class="form-control" placeholder="Fullname" name="user"
+                  #input_name="ngModel" [class.is-valid]="input_name.valid" required
+                  pattern="^[a-zA-Z]{3,}(?: [a-zA-Z]+){0,2}$">
+                <div class="alert alert-danger" [hidden]="input_name.valid || input_name.untouched">
+                  <small *ngIf="input_name.errors?.['required']">
+                    User name is required.
+                  </small>
+                  <small *ngIf="input_name.errors?.['pattern']">
+                    User name must be 3 letters at least.
+                  </small>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-8 mb-3">
+                <input type="text" [(ngModel)]="newUser.email" class="form-control" placeholder="Email" name="email"
+                  #input_email="ngModel" [class.is-valid]="input_email.valid" required
+                  pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$">
+                <div class="alert alert-danger" [hidden]="input_email.valid || input_email.untouched">
+                  <small *ngIf="input_email.errors?.['required']">
+                    Email is required.
+                  </small>
+                  <small *ngIf="input_email.errors?.['pattern']">
+                    Email Should Like name@example.com.
+                  </small>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-8 mb-3">
+                <label>* Please Select Your Role</label>
+                <select style="height: 45px;" data-placeholder="Choose Role" class="form-control"
+                  [(ngModel)]="newUser.role" name="role" #input_role="ngModel" [class.is-valid]="input_role.valid"
+                  required>
+                  <option value="" [selected]=true [disabled]="true" [ngValue]="null">* Please Select Your Role</option>
+                  <option value="freelancer">
+                    &nbsp;&nbsp; freelancer
+                  </option>
+                  <option value="users">
+                    &nbsp;&nbsp; user
+                  </option>
+                </select>
+                <div class="alert alert-danger" [hidden]="input_role.valid || input_role.untouched">
+                  <small *ngIf="input_role.errors?.['required']">
+                    Role is required.
+                  </small>
+
+                </div>
+
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-8 mb-3">
+                <input type="text" [(ngModel)]="newUser.mobilenumber" class="form-control" placeholder="Mobile (+20)"
+                  name="mobile" #input_mobile="ngModel" [class.is-valid]="input_mobile.valid" required
+                  pattern="^(\+201|01|00201)[0-2,5]{1}[0-9]{8}">
+                <div class="alert alert-danger" [hidden]="input_mobile.valid || input_mobile.untouched">
+                  <small *ngIf="input_mobile.errors?.['required']">
+                    Mobile is required.
+                  </small>
+                  <small *ngIf="input_mobile.errors?.['pattern']">
+                    Mobile Should have <br> * start with 010 , 015 , 012. &nbsp; * 11 number length.
+                  </small>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-8 mb-3">
+                <input type="text" [(ngModel)]="newUser.adress" class="form-control" placeholder="Address" #input_address="ngModel" [class.is-valid]="input_address.valid" required name="address">
+              <div class="alert alert-danger" [hidden]="input_address.valid || input_address.untouched">
+                <small *ngIf="input_address.errors?.['required']">
+                  Address is required.
+                </small>
+
+              </div>
+
+              </div>
+            </div>
+
+            <!-- <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-8 mb-3">
+                <input type="password" [(ngModel)]="newUser.password" class="form-control" placeholder="Password"
+                  name="pass">
+              </div>
+            </div> -->
+
+            <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-8 mb-3">
+                <input type="password" [(ngModel)]="newUser.password" class="form-control" placeholder="Password"
+                  name="pass" #input_pass="ngModel" [class.is-valid]="input_pass.valid" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$">
+                  <div class="alert alert-danger" [hidden]="input_pass.valid || input_pass.untouched" >
+                    <small *ngIf="input_pass.errors?.['required']">
+                      Password is required.
+                    </small>
+                    <small *ngIf="input_pass.errors?.['pattern']">
+                      Password Should have: <br> * 8 Character Length &nbsp; * 1 Uppercase Charcter &nbsp; * 1 Special Chracter
+                    </small>
+                  </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-8 mb-3">
+                <input type="password" [(ngModel)]="reconfirm" class="form-control" placeholder="Reconfirm Password" name="re pass" #repass #input_cpass="ngModel" [class.is-valid]="input_cpass.valid" required>
+                <div class="alert alert-danger" [hidden]="input_cpass.valid || input_cpass.untouched" >
+                  <small *ngIf="input_cpass.errors?.['required']">
+                    Recomfirm Password is required.
+                  </small>
+                </div>
+                <div class="alert alert-danger" [hidden]=" input_cpass.untouched || repass.value == newUser.password " >
+                  <small>
+                    Recomfirm Password is not matched.
+                  </small>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-8 mb-3">
+                <input type="number" [(ngModel)]="newUser.category_id" class="form-control" placeholder="category id"
+                  name="cat">
+              </div>
+            </div> -->
+
+            <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-8 mb-3">
+                <label>* Please Select Category</label>
+                <select style="height: 45px;" data-placeholder="Choose Category" class="form-control"
+                  [(ngModel)]="newUser.category_id" name="category_id" #input_cat="ngModel" [class.is-valid]="input_cat.valid" required>
+                  <option value="" [selected]=true [disabled]="true" [ngValue]="null">* Please Select Category</option>
+                  <option *ngFor="let cat of catList ; let i =index" [value]="cat.id">
+                    {{cat.name}}
+                  </option>
+                </select>
+                <div class="alert alert-danger" [hidden]="input_cat.valid || input_cat.untouched" >
+                  <small *ngIf="input_cat.errors?.['required']">
+                    category is required.
+                  </small>
+
+                </div>
+              </div>
+            </div>
+
+            <!-- <div class="row">
+            <div class="col-md-2"></div>
+              <div class="col-md-8 mb-3">
+                <input type="file" class="form-control" [(ngModel)]="newUser.img"  placeholder="img">
+              </div>
+          </div> -->
+
+            <div class="row">
+              <div class="col-md-2"></div>
+              <div class="col-md-8 mb-3">
+                <input type="text" class="form-control" [(ngModel)]="newUser.id_card" placeholder="card id" name="card" #input_id="ngModel" [class.is-valid]="input_id.valid" required pattern="^[0-9]{14}$">
+                <div class="alert alert-danger" [hidden]="input_id.valid || input_id.untouched">
+                  <small *ngIf="input_id.errors?.['required']">
+                    ID is required.
+                  </small>
+                  <small *ngIf="input_id.errors?.['pattern']">
+                    ID Should 14 Character Length
+                  </small>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-md-5"></div>
+              <div class="col-md-4 mb-3">
+                <div class="mt-2 text-right " style="padding-left: 220px"><button class="btn btn-primary profile-button"
+                    type="submit" [disabled]="FormAdd.invalid"><i class="far fa-check"></i> Add User</button></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p style="text-align: center;color: black"> Or </p>
+    <p style="text-align: center;color: black"> Register With </p>
+    <p class="form-row" style="text-align: center; font-size: 25px; padding-bottom: 70px;">
+      <a style="color: #EF6E35;"  > <i class="fab fa-google"> </i> </a> &nbsp;
+
+      <a style="color: rgb(22, 116, 232);"> <i class="fab fa-facebook"> </i> </a>
+    </p>
+  </form>
+</div>

@@ -1,0 +1,107 @@
+
+<app-nav-freelance></app-nav-freelance>
+
+<div id="snippetContent">
+  <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <div class="container bootstrap snippets bootdeys">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="panel panel-default invoice" id="invoice">
+          <div class="panel-body">
+            <div class="invoice-ribbon">
+              <div class="ribbon-inner noPrint">CONTRACT</div>
+            </div>
+            <div class="row">
+
+              <div class="col-sm-6 top-left" style="font-size:20px;color:black">
+                <img src="assets/logo.svg">
+                Engez
+              </div>
+
+
+
+              <div class="col-sm-6 top-right">
+                <h3 class="marginright"></h3> <span class="marginright"></span>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-xs-4 from">
+                <p class="lead marginbottom">User : {{con.user.name}}</p>
+                <p>Address : {{con.user.adress}}</p>
+                <p>ID : {{con.user.id_card}}</p>
+                <p>Phone: (+2) {{con.user.mobilenumber}}</p>
+                <p>Email : {{con.user.email}}</p>
+
+              </div>
+              <div class="col-xs-4 to">
+                <p class="lead marginbottom">Freelancer : {{con.freelancer.name}}</p>
+                <p>Address : {{con.freelancer.adress}}</p>
+                <p>ID : {{con.freelancer.id_card}}</p>
+                <p>Phone: (+2) {{con.freelancer.mobilenumber}}</p>
+                <p>Email: {{con.freelancer.email}}</p>
+
+              </div>
+              <div class="col-xs-4 text-right payment-details">
+                <p class="lead marginbottom payment-info">Job details</p>
+                <p> {{con.job.created_at | date: 'longDate'}}</p>
+                <!-- <p>Job Category :{{contract.}}</p> -->
+                <p>Job Price : {{con.price}} $</p>
+                <p>Job Duration : {{con.job.duration}} </p>
+
+              </div>
+            </div>
+            <div class="row table-row">
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th class="text-center" style="width:5%">Contract</th>
+                    <th style="width:50%">Description</th>
+                    <th class="text-right" style="width:15%">Balance</th>
+                    <th class="text-right" style="width:15%">Duration</th>
+                    <th class="text-right" style="width:15%">contract Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="text-center">{{con.title}} </td>
+                    <td>
+                      {{con.desc}}
+
+                    </td>
+                    <td class="text-right">{{con.price}} $</td>
+                    <td class="text-right">{{con.job.duration}}</td>
+                    <td class="text-right"> {{con.created_at | date: 'longDate'}}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="row">
+              <div class="col-xs-5 margintop">
+                <br>
+                <p class="lead marginbottom"><i class="fa fa-heart" style="color:red"></i> THANK YOU !</p>
+                <button class="btn btn-success noPrint" id="invoice-print" onclick="window.print();"><i
+                    class="fa fa-print"></i> Print Contract (pdf)</button>
+                <!-- <button class="btn btn-danger"><i class="fa fa-envelope-o"></i> Mail Invoice</button> -->
+
+              </div>
+              <div class="col-xs-3">
+                <br>
+                <p>User Signture</p>
+
+              </div>
+              <div class="col-xs-3">
+                <br>
+                <p>Freelancer Signture</p>
+
+              </div>
+              <div class="col-xs-1"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+

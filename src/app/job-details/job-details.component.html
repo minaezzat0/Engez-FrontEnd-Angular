@@ -1,0 +1,123 @@
+<app-nav-freelance></app-nav-freelance>
+
+
+<div class="clearfix"></div>
+
+
+
+
+<div id="titlebar">
+  <div class="container">
+    <div class="ten columns">
+      <span><a>Category / {{job.category.name}} </a></span>
+      <br>
+
+      <h2>{{job.title}} <span class="full-time">{{job.user.name}}</span></h2>
+
+      <span><a> <i class="fa fa-envelope" ></i>  {{job.user.email}} </a></span>
+
+    </div>
+
+  </div>
+</div>
+
+
+
+<div class="container">
+
+
+  <div class="eleven columns">
+    <div class="padding-right">
+
+
+      <div class="company-info">
+        <img src="../../assets/jobs.png" alt="">
+        <div class="content">
+          <h1 style=" font-size: 40px;">{{job.title}}</h1>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+
+      <p class="margin-reset">
+        {{job.desc}}
+      </p>
+
+      <br>
+
+
+    </div>
+  </div>
+
+
+
+  <div class="five columns">
+
+
+    <div class="widget">
+      <h4>Job Overview</h4>
+
+      <div class="job-overview">
+
+        <ul>
+          <li>
+            <i class="fa fa-map-marker"></i>
+            <div>
+              <strong>Location:</strong>
+              <span>{{job.adress}}</span>
+            </div>
+          </li>
+          <li>
+            <i class="fa fa-user"></i>
+            <div>
+              <strong>Job Title:</strong>
+              <span>{{job.title}}</span>
+            </div>
+          </li>
+          <li>
+            <i class="fa fa-clock-o"></i>
+            <div>
+              <strong>Hours:</strong>
+              <span>{{job.duration}}</span>
+            </div>
+          </li>
+          <li>
+            <i class="fa fa-money"></i>
+            <div>
+              <strong>Job Cost</strong>
+              <span>{{job.balance}} $ </span>
+            </div>
+          </li>
+        </ul>
+
+
+        <button (click)="details(job.id)" class="">Send Offer</button>
+
+        <!-- <div id="small-dialog" class="zoom-anim-dialog mfp-hide apply-popup">
+          <div class="small-dialog-headline">
+            <h2>Send Offer For This Job</h2>
+          </div>
+
+          <div class="small-dialog-content">
+            <form method="post" (ngSubmit)="sendOffer()" name="form1">
+              <textarea [(ngModel)]="newOffer.content" placeholder="Your message to job owner" name="m"></textarea>
+              <br>
+              <input [(ngModel)]="newOffer.offer_amount" type="text" placeholder="Offer Cost" value="" name="n" />
+              <input type="hidden" placeholder="Offer id" value="" />
+              <input  type="hidden" placeholder="post id" value="" />
+              <input  type="hidden" placeholder="user id" value="" />
+
+              <button type="submit" >Send Offer</button>
+            </form>
+          </div>
+
+        </div> -->
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+
+</div>

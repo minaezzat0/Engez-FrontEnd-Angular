@@ -1,0 +1,48 @@
+
+
+<app-nav-freelance></app-nav-freelance>
+
+<!-- Content
+================================================== -->
+
+<!-- Container -->
+<div class="container">
+
+  <div class="my-account">
+
+      <!-- <ul class="tabs-nav">
+          <li class=""><a href="#tab1">Login</a></li>
+
+      </ul> -->
+      <br>
+      <h1 style="text-align: center; color: #2DB2EA; padding-right: 30px; padding-top: 20px;" >Add Offer</h1>
+      <div class="tabs-container">
+          <!-- Login -->
+          <div class="small-dialog-content">
+            <form method="post" (ngSubmit)="sendOffer()" name="form1" #FormAdd="ngForm">
+              <textarea [(ngModel)]="newOffer.content" placeholder="Your message to job owner" name="m" #input_name="ngModel" [class.is-valid]="input_name.valid" required minlength="5"></textarea>
+              <div class="alert alert-danger" [hidden]="input_name.valid || input_name.untouched">
+                <small *ngIf="input_name.errors?.['required']">
+                  message is required.
+                </small>
+                <small *ngIf="input_name.errors?.['pattern']">
+                  message must be 5 letters at least.
+                </small>
+              </div>
+              <br>
+              <input [(ngModel)]="newOffer.offer_amount" type="number" placeholder="Offer Cost" value="" name="n" #input_offer="ngModel" [class.is-valid]="input_name.valid" required />
+              <div class="alert alert-danger" [hidden]="input_offer.valid || input_offer.untouched">
+                <small *ngIf="input_offer.errors?.['required']">
+                  offer is required.
+                </small>
+
+              </div>
+              <br>
+              <p style="text-align: center;"><button type="submit" [disabled]="FormAdd.invalid" >Send Offer</button></p>
+            </form>
+          </div>
+
+      </div>
+  </div>
+</div>
+

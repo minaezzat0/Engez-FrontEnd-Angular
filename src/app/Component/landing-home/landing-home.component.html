@@ -1,0 +1,273 @@
+<!-- <ng-container >
+  <header>
+    <div class="container" >
+      <div class="sixteen columns">
+  <div id="logo">
+    <img style="width: 40px;" src="assets/logo.svg" alt="Engez">
+
+  </div>
+  <div id="logo" style="margin-top: 33px; ">
+    <B>Engez</B>
+
+  </div>
+
+  <nav id="navigation" class="menu">
+    <ul id="responsive">
+      <li><a href="#" routerLink="/landingHome" routerLinkActive="active">Home</a>
+
+      </li>
+
+
+      <li>
+        <a class="nav-link" href="#team" routerLinkActive="active">
+          Team
+        </a>
+      </li>
+      <li >
+        <a class="nav-link" href="#contact" routerLinkActive="active">
+          Contact US
+        </a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" (click)="toTop()">
+          About
+        </a>
+      </li>
+
+
+
+
+
+
+
+    </ul>
+    <ul class="float-right">
+      <li><a href="#" routerLink="/register" routerLinkActive="active"><i class="fa fa-user"></i> Sign
+          Up</a></li>
+      <li><a href="#" routerLink="/login" routerLinkActive="active"><i class="fa fa-lock"></i> Log
+          In</a></li>
+
+    </ul>
+  </nav>
+
+</div>
+</div>
+</header>
+</ng-container> -->
+
+
+<app-nav></app-nav>
+<div id="banner" style="background: url(../../../assets/Effective-Board-Meeting_banner.jpg);background-size: cover;">
+  <div class="container">
+    <div class="sixteen columns">
+
+      <div class="search-container">
+
+
+        <!-- Form -->
+        <h2 style="color: #ffffff  ;"> Welcome </h2>
+        <h2 style="font-size : 30px;">Find job</h2>
+        <input type="text" class="ico-01" placeholder="job title, keywords or company name" value="" />
+        <button><i class="fa fa-search"></i></button>
+
+        <!-- Browse Jobs -->
+        <div class="browse-jobs">
+          <!-- Browse job offers by <a href="browse-categories.html"> category</a> or <a href="#">location</a> -->
+        </div>
+
+        <!-- Announce -->
+        <div class="announce">
+          We’ve over <strong>15 000</strong> job offers for you!
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Row  -->
+<div class="container spacer" id="ab">
+  <div class="row justify-content-center">
+    <!-- Column -->
+    <div class="col-md-9 no-trans ">
+      <h1 class="title  ">How engiz work ?</h1>
+      <br><br>
+
+      <h2><i class="fa fa-check-circle" style="color: rgb(0, 135, 238);"> </i> &nbsp;User Add Project</h2>
+      <h4 class="px-5">User add a job and complete details and post the job .</h4>
+
+      <br><br>
+
+
+      <h2><i class="fa fa-check-circle" style="color: rgb(0, 135, 238);"> </i> &nbsp;Freelancer do Offer</h2>
+      <h4 class="px-5">Freelancer do an offer with price for job.
+      </h4>
+      <br><br>
+
+
+      <h2><i class="fa fa-check-circle" style="color: rgb(0, 135, 238);"> </i> &nbsp;User Choose Offer</h2>
+      <h4 class="px-5">
+        User decide the right offer for project.
+      </h4>
+
+      <br><br>
+      <h2><i class="fa fa-check-circle" style="color: rgb(0, 135, 238);"> </i> &nbsp;Create Contract</h2>
+      <h4 class="px-5">
+        Freelancer and User Agreed on Details of Contract.
+      </h4>
+
+    </div>
+    <!-- Column -->
+  </div>
+  <div class="row m-t-40 justify-content-center">
+    <!-- Column -->
+
+  </div>
+</div>
+
+<br><br>
+<!-- Categories -->
+<!-- <div class="container">
+    <div class="sixteen columns">
+      <h3 class="margin-bottom-25">Popular Categories</h3>
+      <ul id="popular-categories">
+        <li><a href="#"><i class="fa fa-line-chart"></i> Accounting / Finance</a></li>
+        <li><a href="#"><i class="fa fa-wrench"></i> Automotive Jobs</a></li>
+        <li><a href="#"><i class="fa fa-building-o"></i> Construction / Facilities</a></li>
+        <li><a href="#"><i class="fa fa-graduation-cap"></i> Education Training</a></li>
+        <li><a href="#"><i class="fa fa-medkit"></i> Healthcare</a></li>
+        <li><a href="#"><i class="fa fa-cutlery"></i> Restaurant / Food Service</a></li>
+        <li><a href="#"><i class="fa fa-globe"></i> Transportation / Logistics</a></li>
+        <li><a href="#"><i class="fa fa-laptop"></i> Telecommunications</a></li>
+      </ul>
+
+      <div class="clearfix"></div>
+      <div class="margin-top-30"></div>
+
+      <a href="browse-categories.html" class="button centered">Browse All Categories</a>
+      <div class="margin-bottom-50"></div>
+    </div>
+  </div>
+ -->
+
+<hr>
+<div class="container">
+
+  <div class="eleven columns" id="contact">
+
+    <h3 class="margin-bottom-15">Contact Form</h3>
+
+    <!-- Contact Form -->
+    <section id="contact" class="padding-right">
+
+      <!-- Success Message -->
+      <mark id="message"></mark>
+
+      <!-- Form -->
+      <form method="post" name="contactform" id="contactform" (ngSubmit)="addMessage()" #FormAdd="ngForm">
+
+        <fieldset>
+          <div>
+            <label>Email: <span>*</span></label>
+            <input name="email" type="email" id="email" [(ngModel)]="messageList.email" #input_email="ngModel"
+              [class.is-valid]="input_email.valid" required pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$">
+            <div class="alert alert-danger" [hidden]="input_email.valid || input_email.untouched">
+              <small *ngIf="input_email.errors?.['required']">
+                Email is required.
+              </small>
+              <small *ngIf="input_email.errors?.['pattern']">
+                Email Should Like name@example.com.
+              </small>
+            </div>
+
+          </div>
+          <div>
+            <label>Subject:</label>
+            <input name="name" type="text" id="name" [(ngModel)]="messageList.subject" required #input_name="ngModel"
+              [class.is-valid]="input_name.valid" required minlength="3" />
+            <div class="alert alert-danger" [hidden]="input_name.valid || input_name.untouched">
+              <small *ngIf="input_name.errors?.['required']">
+                Subject is required.
+              </small>
+              <small *ngIf="input_name.errors?.['minlength']">
+                Subject must be 3 letters at least.
+              </small>
+            </div>
+          </div>
+          <div>
+            <label>Message: <span>*</span></label>
+            <textarea name="comment" cols="40" rows="3" id="comment" spellcheck="true"
+              [(ngModel)]="messageList.message" #input_mname="ngModel" [class.is-valid]="input_mname.valid" required minlength="5"
+              minlength="5"></textarea>
+
+            <div class="alert alert-danger" [hidden]="input_mname.valid || input_mname.untouched">
+              <small *ngIf="input_mname.errors?.['required']">
+                message is required.
+              </small>
+              <small *ngIf="input_mname.errors?.['minlength']">
+                message must be 5 letters at least.
+              </small>
+            </div>
+          </div>
+
+        </fieldset>
+        <div id="result"></div>
+        <input type="submit" value="Send Message" [disabled]="FormAdd.invalid" />
+
+        <div class="margin-bottom-40"></div>
+      </form>
+
+    </section>
+    <!-- Contact Form / End -->
+
+  </div>
+  <!-- Container / End -->
+
+
+  <!-- Sidebar
+      ================================================== -->
+  <div class="five columns">
+
+    <!-- Information -->
+    <h3 class="margin-bottom-10">How to Reach us</h3>
+    <div class="widget-box">
+      <p>Engez , is web paltform that connects the freelancer with user. </p>
+
+      <ul class="contact-informations">
+        <li>Egypt , Cairo</li>
+        <li>Egypt , Minya </li>
+      </ul>
+
+      <ul class="contact-informations second">
+        <li><i class="fa fa-phone"></i>
+          <p>+0100 79 79 368</p>
+        </li>
+        <li><i class="fa fa-envelope"></i>
+          <p>mail@Engez.com</p>
+        </li>
+        <li><i class="fa fa-globe"></i>
+          <p>www.Engez.com</p>
+        </li>
+      </ul>
+
+    </div>
+
+    <!-- Social -->
+    <div class="widget margin-top-30">
+      <h3 class="margin-bottom-5">Social Media</h3>
+      <ul class="social-icons">
+        <li><a class="facebook" href="#"><i class="icon-facebook"></i></a></li>
+        <li><a class="twitter" href="#"><i class="icon-twitter"></i></a></li>
+        <li><a class="gplus" href="#"><i class="icon-gplus"></i></a></li>
+        <li><a class="linkedin" href="#"><i class="icon-linkedin"></i></a></li>
+      </ul>
+      <div class="clearfix"></div>
+      <div class="margin-bottom-50"></div>
+    </div>
+
+  </div>
+</div>
+<!-- Container / End -->

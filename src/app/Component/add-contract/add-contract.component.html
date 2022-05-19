@@ -1,0 +1,51 @@
+<app-nav-user></app-nav-user>
+
+<!-- Content
+================================================== -->
+
+<!-- Container -->
+<div class="container">
+
+  <div class="my-account">
+
+    <!-- <ul class="tabs-nav">
+          <li class=""><a href="#tab1">Login</a></li>
+
+      </ul> -->
+    <br>
+    <h1 style="text-align: center; color: #2DB2EA; padding-right: 30px; padding-top: 20px;">Add Contract</h1>
+    <div class="tabs-container">
+      <!-- Login -->
+      <div class="small-dialog-content">
+        <form method="post" (ngSubmit)="addContract()" name="form1" #FormAdd="ngForm">
+          <input [(ngModel)]="newContract.title" type="text" placeholder="Contract Title" value="" name="n"
+            #input_name="ngModel" [class.is-valid]="input_name.valid" required minlength="3" />
+          <div class="alert alert-danger" [hidden]="input_name.valid || input_name.untouched">
+            <small *ngIf="input_name.errors?.['required']">
+              Title is required.
+            </small>
+            <small *ngIf="input_name.errors?.['minlength']">
+              Title must be 3 letters at least.
+            </small>
+          </div>
+          <br>
+
+          <textarea [(ngModel)]="newContract.desc" placeholder="Contract Description" name="m" #input_name="ngModel"
+            [class.is-valid]="input_name.valid" required minlength="5"></textarea>
+          <div class="alert alert-danger" [hidden]="input_name.valid || input_name.untouched">
+            <small *ngIf="input_name.errors?.['required']">
+              Description is required.
+            </small>
+            <small *ngIf="input_name.errors?.['minlength']">
+              Description must be 5 letters at least.
+            </small>
+          </div>
+          <br>
+          <P style="text-align: center;"><button style="text-align: center;" type="submit"
+              [disabled]="FormAdd.invalid">confirm</button></P>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>

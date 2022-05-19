@@ -1,0 +1,61 @@
+
+<app-nav-freelance></app-nav-freelance>
+
+
+<div id="titlebar">
+    <div class="container">
+        <div class="ten columns">
+            <span>We've found &nbsp; <B style="color: #2DB2EA;">{{freelancerList.length}}</B> &nbsp; profile for:</span>
+            <h2 style="color: #2DB2EA;"> Freelancers</h2>
+        </div>
+
+        <!-- <div class="six columns">
+            <a href="add-resume.html" class="button">Post a Resume, It’s Free!</a>
+        </div> -->
+
+    </div>
+</div>
+
+
+<!-- Content
+================================================== -->
+<div class="container">
+    <!-- Recent Jobs -->
+    <div class="eleven columns">
+        <div class="padding-right">
+
+            <!-- <form action="#" method="get" class="list-search">
+                <button><i class="fa fa-search"></i></button>
+                <input type="text" placeholder="Search freelancer services (e.g. logo design)" value="" />
+                <div class="clearfix"></div>
+            </form> -->
+
+            <ul class="resumes-list">
+                <ng-container *ngFor="let freelancer of freelancerList; let i=index;">
+                    <li class="highlighted">
+                      <a >
+                            <img src="../../../assets/free.png" alt="">
+                            <div class="resumes-list-content">
+                                <h4>{{freelancer.name}} <ng-container *ngIf="freelancer.verified=='verified'"> <i  style="color:dodgerblue"  class="fas fa-badge-check"></i></ng-container> <span style="color: #000000;">{{freelancer.category.name}}</span></h4>
+                                <span><i class="fa fa-map-marker"></i> {{freelancer.adress}}</span><br><br>
+                                <!-- <span><i class="fa fa-money"></i> $100 / hour</span> -->
+                                <span> <i class="fab fa-whatsapp"> </i> {{freelancer.mobilenumber}} </span><br><br>
+                                <span> <i class="fa fa-envelope"> </i> {{freelancer.email}} </span>
+
+                                <div class="clearfix"></div>
+                                <!-- <span style="padding-left: 400px;" > <button style="background-color: #4A89D9;" (click)=" details(freelancer.id)" > <i class="fa fa-user" style="color: rgb(255, 255, 255);" ></i> Show Profile  </button> </span> -->
+                            </div>
+
+                        <div class="clearfix"></div>
+                      </a>
+
+                    </li>
+                    <br> <br>
+                </ng-container>
+
+
+            </ul>
+            <!-- Widgets / End -->
+
+
+        </div>

@@ -1,0 +1,55 @@
+
+
+<app-nav-freelance></app-nav-freelance>
+
+
+<!-- Content
+
+================================================== -->
+
+<!-- Container -->
+<div class="container">
+
+  <div class="my-account">
+
+    <!-- <ul class="tabs-nav">
+          <li class=""><a href="#tab1">Login</a></li>
+
+      </ul> -->
+
+    <div class="tabs-container">
+      <!-- Login -->
+      <div class="tab-content" id="tab1">
+
+        <h2 class="margin-bottom-10 margin-top-10" style="color: #2DB2EA;">Send Offer</h2>
+
+        <form method="post" class="login">
+          <!-- (ngSubmit)="send()" -->
+
+
+          <p class="form-row form-row-wide">
+            <label for="username">Offer Content</label>
+            <textarea  class="input-text" formControlName="email" name="username" id="username" value="" > Offer Content </textarea>
+          </p>
+
+          <p class="form-row form-row-wide">
+            <label for="password">Price</label>
+            <input class="input-text" type="password" formControlName="password" name="password" id="password" />
+          </p>
+
+          <p class="form-row">
+            <input type="submit" class="button" name="login" value="Login" />
+
+
+          </p>
+
+
+
+
+        </form>
+      </div>
+
+
+    </div>
+  </div>
+</div>
